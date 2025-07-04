@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cruise Ship Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Firebase SDKs: Paste in <head> -->
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>   
+</head>
+<body>
+
+<div class="waves"></div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+<!-- Hamburger Icon -->
+<button class="openbtn" onclick="toggleSidebar()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar Navigation -->
+<div id="mySidebar" class="sidebar">
+  <a href="#" onclick="showTab('voyager')">Voyager</a>
+  <a href="#" onclick="showTab('admin')">Admin</a>
+  <a href="#" onclick="showTab('manager')">Manager</a>
+  <a href="#" onclick="showTab('headCook')">Head Cook</a>
+  <a href="#" onclick="showTab('supervisor')">Supervisor</a>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+</div>
+
+<!-- Main Header -->
+<div class="header">Cruise Ship Management </div>
+
+<!-- Voyager Section -->
+<div id="voyager" class="container active">
+  <h2>Voyager Sign In</h2>
+  <form onsubmit="voyagerLogin(event)">
+    <input id="voyagerEmail" type="email" placeholder="Email" required>
+    <input id="voyagerPassword" type="password" placeholder="Password" required>
+    <button type="submit">Sign In</button>
+  </form>
+  <div class="actions">
+    <h3>Voyager Services</h3>
+<button onclick="window.location.href='catering.html'">Order Catering</button>
+<button onclick="window.location.href='stationery.html'">Order Stationery</button>
+<button onclick="window.location.href='movies.html'">Book Movie Ticket</button>
+<button onclick="window.location.href='resort.html'">Book Resort Dining</button>
+<button onclick="window.location.href='fitness.html'">Book Fitness Center</button>
+<button onclick="window.location.href='partyhall.html'">Book Party Hall</button>
+  </div>
+</div>
+
+<!-- Admin Section -->
+<div id="admin" class="container">
+  <h2>Admin Sign In</h2>
+  <form onsubmit="adminLogin(event)">
+    <input id="adminEmail" type="email" placeholder="Email" required>
+    <input id="adminPassword" type="password" placeholder="Password" required>
+    <button type="submit">Sign In</button>
+  </form>
+  
+  <div class="actions">
+    <h3>Admin Actions</h3>
+    <button>Add Item</button>
+    <button>Edit/Delete Item</button>
+    <button>Maintain Menu</button>
+    <button>Voyager Registration</button>
+  </div>
+</div>
+
+<!-- Manager Section -->
+<div id="manager" class="container">
+  <h2>Manager Panel</h2>
+  <div class="actions">
+    <button>View Resort/Movie Bookings</button>
+    <button>View Beauty Salon Bookings</button>
+    <button>View Fitness Center Bookings</button>
+    <button>View Party Hall Bookings</button>
+  </div>
+</div>
+
+<!-- Head Cook Section -->
+<div id="headCook" class="container">
+  <h2>Head Cook Panel</h2>
+  <div class="actions">
+    <button>View Catering Orders</button>
+  </div>
+</div>
+
+<!-- Supervisor Section -->
+<div id="supervisor" class="container">
+  <h2>Supervisor Panel</h2>
+  <div class="actions">
+    <button>View Stationery Orders</button>
+  </div>
+</div>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("overlay");
+    const isMobile = window.innerWidth <= 600;
+
+    if (isMobile) {
+      sidebar.classList.toggle("open");
+    } else {
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+
+    overlay.style.display = overlay.style.display === "block" ? "none" : "block";
+  }
+
+  function closeSidebar() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("overlay");
+    const isMobile = window.innerWidth <= 600;
+
+    if (isMobile) {
+      sidebar.classList.remove("open");
+      
+    } else {
+      sidebar.style.left = "-250px";
+    }
+
+    overlay.style.display = "none";
+  }
+
+  function showTab(tabId) {
+    document.querySelectorAll('.container').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    closeSidebar(); // Close sidebar after tab selection
+  }
+
+  
+</script>
+
+</body>
+</html>

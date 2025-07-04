@@ -1,0 +1,191 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('royalcaribbeanshipsnassau-1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .waves {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: url('https://svgshare.com/i/ubn.svg') repeat-x;
+    animation: animateWaves 10s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes animateWaves {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+  }
+
+  .header {
+    text-align: center;
+    padding: 30px 20px 10px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffffdd;
+    text-shadow: 2px 2px 5px #00000080;
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .sidebar a {
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.2s;
+  }
+
+  .sidebar a:hover {
+    background-color: #dbac34;
+    color: white;
+  }
+
+  .social-icons {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    color: white;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #db346e;
+  }
+
+  .openbtn {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    color: white;
+  }
+
+  .openbtn span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    display: none;
+  }
+
+  .container {
+    max-width: 400px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin: 30px auto;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .container.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  h2, h3 { text-align: center; }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input, button {
+    margin: 10px 0;
+    padding: 12px;
+    width: 90%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .actions button {
+    background: #db9e34;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+    width: 100%;
+  }
+
+  .actions button:hover {
+    background: #2b74b9;
+  }
+
+  @media (max-width: 600px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      top: -100%;
+      left: 0;
+      transition: top 0.3s ease;
+    }
+
+    .sidebar.open {
+      top: 0;
+    }
+
+    .openbtn {
+      left: 10px;
+      top: 10px;
+    }
+  }
