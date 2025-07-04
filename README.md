@@ -46,5 +46,5 @@ A comprehensive Cruise Ship Management System built using **HTML**, **CSS**, **J
 
 ---
 
-## 📁 Project Structure
+
 
